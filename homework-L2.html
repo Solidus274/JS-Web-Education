@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homework-L2</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        //    ДЗ-2
+
+        // Задание 1
+
+        //пример 1
+        let a = 1,
+            b = 1,
+            c, d;
+        c = ++a;
+        alert(c);
+        // Ответ будет равен 2 так как тут применен инкремент с префиксной формой записи. Сначала инкремент увеличивает а на 1, затем записывается в с
+
+        //пример 2
+        d = b++;
+        alert(d);
+        // Ответ будет равен 1 так как тут применен инкремент с постфиксной формой записи. Сначала инкремент записывается в d и только потом увеличивает b на 1
+
+        //пример 3
+        c = 2 + ++a;
+        alert(c);
+        // Ответ будет равен 5 так как мы прибавляем 2 к увеличенному на инкремент с префиксной формой записи а, который с  примера 1 уже равен 2
+
+        //пример 4
+        d = 2 + b++;
+        alert(d);
+        // Ответ будет равен 4 так как мы прибавляем 2 r b, который с примера 2 благодаря постфиксной форме записи стал равен двум. Затем после обьявления alert b станет равен 3.
+
+
+        // Задание 2
+
+        let a = 2;
+        let x = 1 + (a *= 2);
+        alert(a);
+        alert(x);
+        // *= это оператор присваивания с умножением. Смысл записи - a = a * 2. 
+        // 1 + 2 * 2 =  5. a = 4; x = 5;
+
+
+        // Задание 3
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        let a = getRandomInt(-100, 101);
+        let b = getRandomInt(-100, 101);
+
+        if (a >= 0 && b >= 0)
+            alert(a - b);
+        else if (a < 0 && b < 0)
+            alert(a * b);
+        else
+            alert(a + b);
+
+        // Задание 4
+
+        function additionFunc(a, b) {
+            return a + b;
+        }
+
+        function subtractionFunc(a, b) {
+            return a - b;
+        }
+
+        function multiplicationFunc(a, b) {
+            return a * b;
+        }
+
+        function divisionFunc(a, b) {
+            return a / b;
+        }
+
+        alert(additionFunc(5, 9));
+        alert(subtractionFunc(5, 9));
+        alert(multiplicationFunc(5, 9));
+        alert(divisionFunc(5, 9));
+
+
+        // Задание 5
+
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case 'addition':
+                    return (additionFunc(arg1, arg2));
+                    break;
+                case 'subtraction':
+                    return (subtractionFunc(arg1, arg2));
+                    break;
+                case 'multiplication':
+                    return (multiplicationFunc(arg1, arg2));
+                    break;
+                case 'division':
+                    return (divisionFunc(arg1, arg2));
+                    break;
+            }
+
+        }
+
+        alert(mathOperation(8, 7, 'addition'));
+        alert(mathOperation(8, 7, 'subtraction'));
+        alert(mathOperation(8, 7, 'multiplication'));
+        alert(mathOperation(8, 7, 'division'));
+
+    </script>
+</body>
+
+</html>
