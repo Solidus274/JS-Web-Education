@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homework-L4</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        //    ДЗ-4
+
+        // Задание 1
+
+        function checkNum(numberToTransform) {
+            if (!Number.isInteger(numberToTransform) || numberToTransform < 0 || numberToTransform > 999) {
+                console.log('Введите число в диапазоне: [0 .. 999].');
+                return {};
+            }
+
+            return {
+                units: numberToTransform % 10,
+                tens: Math.floor(numberToTransform / 10) % 10,
+                hundereds: Math.floor(numberToTransform / 100),
+            };
+        }
+
+        let target = +prompt("Введите целое число в диапазоне от 0 до 999: ");
+
+        console.log(checkNum(target));
+        
+    </script>
+</body></html>
