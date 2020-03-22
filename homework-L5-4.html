@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homework-L5 Картинки</title>
+</head>
+<style>
+    .pics {
+        height: 20%;
+        width: 20%;
+    }
+</style>
+
+<body>
+    <div class="product">
+        <div class="productName">Рандом 1</div><br>
+        <img class="pics" src="https://cdn.pixabay.com/photo/2020/03/19/20/39/greenhouse-4948726_960_720.jpg" alt="randomPic"><br>
+        <button>Сделать что-нибудь</button><br>
+    </div>
+    <div class="product">
+        <div class="productName">Рандом 2</div><br>
+        <img class="pics" src="https://cdn.pixabay.com/photo/2020/03/09/23/35/bonobo-4917396_960_720.jpg" alt="randomPic"><br>
+        <button>Сделать что-нибудь</button><br>
+    </div>
+    <div class="product">
+        <div class="productName">Рандом 3</div><br>
+        <img class="pics" src="https://cdn.pixabay.com/photo/2020/03/01/17/50/monalisa-4893660_960_720.jpg" alt="randomPic"><br>
+        <button>Сделать что-нибудь</button><br>
+    </div>
+
+
+    <script>
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                handleClick(event);
+            })
+        });
+
+        function handleClick(clickedButtonEvent) {
+            const cardNode = clickedButtonEvent.target.parentNode;
+
+            const card = {
+                wrap: cardNode,
+                img: cardNode.querySelector('img'),
+                productName: cardNode.querySelector('.productName'),
+                button: cardNode.querySelector('button'),
+            };
+
+            const textOnButton = card.button.innerText;
+            if (textOnButton === 'Сделать что-нибудь') {
+                expandText(card);
+            } else if (textOnButton === 'Не делать ничего') {
+                wrapText(card);
+            }
+        }
+
+        function wrapText(card) {
+            card.img.style.display = 'block';
+            card.wrap.querySelector('.desc').remove();
+            card.button.innerText = 'Сделать что-нибудь';
+        }
+
+        function expandText(card) {
+            card.img.style.display = 'none';
+            const text = 'Абсолютно бессмысленное изображение показаное продемонстрировать, что если нажать на кнопку произойдет хоть что-нибудь';
+            card.productName.insertAdjacentHTML('afterend', `<div class="desc">${text}</div>`);
+            card.button.innerText = 'Не делать ничего';
+        }
+    </script>
+</body></html>
