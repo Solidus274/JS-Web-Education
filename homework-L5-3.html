@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homework-L5 Модальное окно</title>
+</head>
+<style>
+    .modal {
+        display: none;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .modal-content {
+        animation-name: animate;
+        animation-duration: 0.5s
+    }
+
+    @keyframes animate {
+        from {
+            top: -320px;
+            opacity: 0
+        }
+
+        to {
+            top: 0;
+            opacity: 1
+        }
+    }
+
+    .close {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+</style>
+
+<body>
+    <button id="myBtn">Открыть окно</button>
+
+
+    <div id="myModal" class="modal">
+
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>ДЗ-5 Модальное окно</h2>
+            </div>
+            <div class="modal-body">
+                <p>Задание 3</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, pariatur. Fugiat, possimus laborum dolores vitae dignissimos labore incidunt, facilis similique quasi a, voluptatum, atque maxime.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        'use strict';
+
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
